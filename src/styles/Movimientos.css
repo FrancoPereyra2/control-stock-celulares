@@ -1,0 +1,252 @@
+.paginaMovimientos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Barra superior ── */
+
+.paginaMovimientos .barraAcciones {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filtrosMovimientos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.paginaMovimientos .buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 40px;
+  max-width: 380px;
+  color: #94a3b8;
+  transition: border-color 0.15s;
+}
+
+.paginaMovimientos .buscador:focus-within {
+  border-color: #3b82f6;
+  color: #475569;
+}
+
+.paginaMovimientos .inputBusqueda {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13.5px;
+  color: #0f172a;
+  width: 100%;
+}
+
+.paginaMovimientos .inputBusqueda::placeholder { color: #94a3b8; }
+
+.chipsFiltro {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chipFiltro {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.chipFiltro:hover { background-color: #f8fafc; }
+
+.chipFiltroActivo {
+  background-color: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* ── Tabla ── */
+
+.paginaMovimientos .contenedorTabla {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+.paginaMovimientos .tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.paginaMovimientos .tabla thead tr { border-bottom: 1px solid #f1f5f9; }
+
+.paginaMovimientos .tabla th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.paginaMovimientos .tabla tbody tr {
+  border-bottom: 1px solid #f8fafc;
+  transition: background-color 0.1s;
+}
+
+.paginaMovimientos .tabla tbody tr:last-child { border-bottom: none; }
+.paginaMovimientos .tabla tbody tr:hover { background-color: #f8fafc; }
+
+.paginaMovimientos .tabla td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+/* ── Chips de tipo ── */
+
+.chipTipo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.chipTipo-entrada { background-color: #f0fdf4; color: #16a34a; }
+.chipTipo-salida  { background-color: #fef2f2; color: #dc2626; }
+
+/* ── Celdas ── */
+
+.nombreProducto {
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+}
+
+.categoriaTabla {
+  color: #64748b;
+  font-size: 13px;
+}
+
+.cantidadTabla {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cantidad-entrada { color: #16a34a; }
+.cantidad-salida  { color: #dc2626; }
+
+.fechaTabla {
+  color: #64748b;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.notaTabla {
+  color: #64748b;
+  font-size: 13px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sinNota { color: #cbd5e1; }
+
+
+.paginaMovimientos .sinResultados {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px;
+  font-size: 14px;
+}
+
+.totalMovimientos {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Cards mobile ── */
+
+.paginaMovimientos .listaCards { display: none; }
+
+.paginaMovimientos .card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.paginaMovimientos .cardFila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.categoriaCard {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.notaCard {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 0;
+  font-style: italic;
+}
+
+.cardPie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 900px) {
+  .paginaMovimientos .tabla th:nth-child(6),
+  .paginaMovimientos .tabla td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .paginaMovimientos .barraAcciones { flex-direction: column; align-items: stretch; }
+  .paginaMovimientos .buscador { max-width: 100%; height: 44px; }
+
+  .paginaMovimientos .contenedorTabla { display: none; }
+  .paginaMovimientos .listaCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
