@@ -6,6 +6,7 @@ const ENLACES = [
   {
     ruta: '/panel',
     etiqueta: 'Panel Principal',
+    etiquetaCorta: 'Panel',
     icono: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -17,6 +18,7 @@ const ENLACES = [
   {
     ruta: '/productos',
     etiqueta: 'Productos',
+    etiquetaCorta: 'Productos',
     icono: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -29,6 +31,7 @@ const ENLACES = [
   {
     ruta: '/categorias',
     etiqueta: 'Categorías',
+    etiquetaCorta: 'Categorías',
     icono: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -40,6 +43,7 @@ const ENLACES = [
   {
     ruta: '/movimientos',
     etiqueta: 'Movimientos',
+    etiquetaCorta: 'Movimientos',
     icono: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -53,6 +57,7 @@ const ENLACES = [
   {
     ruta: '/alertas',
     etiqueta: 'Alertas',
+    etiquetaCorta: 'Alertas',
     icono: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -76,22 +81,16 @@ export default function Diseno() {
   const { pathname } = useLocation()
   const sesion = localStorage.getItem('sesion_admin')
   const [administrador] = useState(sesion ? JSON.parse(sesion) : null)
-  const [menuAbierto, setMenuAbierto] = useState(false)
 
   function cerrarSesion() {
     localStorage.removeItem('sesion_admin')
     navegar('/login', { replace: true })
   }
 
-  function cerrarMenu() {
-    setMenuAbierto(false)
-  }
-
   return (
     <div className="contenedor">
-      {menuAbierto && <div className="overlay" onClick={cerrarMenu} />}
-
-      <aside className={menuAbierto ? 'barra barraAbierta' : 'barra'}>
+      {/* Sidebar — solo desktop */}
+      <aside className="barra">
         <div className="encabezado">
           <div className="logoIcono">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -108,7 +107,6 @@ export default function Diseno() {
             <NavLink
               key={ruta}
               to={ruta}
-              onClick={cerrarMenu}
               className={({ isActive }) => isActive ? 'enlace activo' : 'enlace'}
             >
               {icono}
@@ -144,26 +142,50 @@ export default function Diseno() {
       <div className="areaContenido">
         <header className="topbar">
           <div className="topbarIzquierda">
-            <button className="hamburguesa" onClick={() => setMenuAbierto(!menuAbierto)}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+            <div className="topbarLogoMobile">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+                <line x1="12" y1="18" x2="12.01" y2="18" />
               </svg>
-            </button>
+            </div>
             <h2 className="topbarTitulo">{TITULOS[pathname] ?? 'Panel'}</h2>
           </div>
-          <span className="topbarFecha">
-            {new Date().toLocaleDateString('es-AR', {
-              weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
-            })}
-          </span>
+          <div className="topbarDerecha">
+            <span className="topbarFecha">
+              {new Date().toLocaleDateString('es-AR', {
+                weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+              })}
+            </span>
+            <button className="botonSalirMobile" onClick={cerrarSesion} title="Cerrar sesión">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                <polyline points="16 17 21 12 16 7" />
+                <line x1="21" y1="12" x2="9" y2="12" />
+              </svg>
+            </button>
+          </div>
         </header>
+
         <main className="principal">
           <Outlet />
         </main>
       </div>
+
+      {/* Nav inferior — solo mobile */}
+      <nav className="navInferior">
+        {ENLACES.map(({ ruta, etiquetaCorta, icono }) => (
+          <NavLink
+            key={ruta}
+            to={ruta}
+            className={({ isActive }) => isActive ? 'navItem navItemActivo' : 'navItem'}
+          >
+            {icono}
+            <span>{etiquetaCorta}</span>
+          </NavLink>
+        ))}
+      </nav>
     </div>
   )
 }
