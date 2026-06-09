@@ -76,15 +76,22 @@ export default function Diseno() {
   const { pathname } = useLocation()
   const sesion = localStorage.getItem('sesion_admin')
   const [administrador] = useState(sesion ? JSON.parse(sesion) : null)
+  const [menuAbierto, setMenuAbierto] = useState(false)
 
   function cerrarSesion() {
     localStorage.removeItem('sesion_admin')
     navegar('/login', { replace: true })
   }
 
+  function cerrarMenu() {
+    setMenuAbierto(false)
+  }
+
   return (
     <div className="contenedor">
-      <aside className="barra">
+      {menuAbierto && <div className="overlay" onClick={cerrarMenu} />}
+
+      <aside className={menuAbierto ? 'barra barraAbierta' : 'barra'}>
         <div className="encabezado">
           <div className="logoIcono">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
@@ -101,6 +108,7 @@ export default function Diseno() {
             <NavLink
               key={ruta}
               to={ruta}
+              onClick={cerrarMenu}
               className={({ isActive }) => isActive ? 'enlace activo' : 'enlace'}
             >
               {icono}
@@ -135,7 +143,17 @@ export default function Diseno() {
 
       <div className="areaContenido">
         <header className="topbar">
-          <h2 className="topbarTitulo">{TITULOS[pathname] ?? 'Panel'}</h2>
+          <div className="topbarIzquierda">
+            <button className="hamburguesa" onClick={() => setMenuAbierto(!menuAbierto)}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </button>
+            <h2 className="topbarTitulo">{TITULOS[pathname] ?? 'Panel'}</h2>
+          </div>
           <span className="topbarFecha">
             {new Date().toLocaleDateString('es-AR', {
               weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
