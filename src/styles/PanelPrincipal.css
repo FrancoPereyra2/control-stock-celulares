@@ -1,0 +1,295 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Tarjetas de resumen ── */
+
+.grillaTarjetas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid #d3d3d3;
+}
+
+.tarjetaIcono {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tarjeta-azul .tarjetaIcono   { background-color: #eff6ff; color: #1d4ed8; }
+.tarjeta-rojo .tarjetaIcono   { background-color: #fef2f2; color: #dc2626; }
+.tarjeta-verde .tarjetaIcono  { background-color: #f0fdf4; color: #16a34a; }
+.tarjeta-violeta .tarjetaIcono { background-color: #f5f3ff; color: #7c3aed; }
+
+.tarjetaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tarjetaTitulo {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.tarjetaValor {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 2px 0 4px;
+  line-height: 1;
+}
+
+.tarjetaDetalle {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Secciones secundarias ── */
+
+.grillaSecundaria {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.seccion {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.seccionEncabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.seccionTitulo {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+
+.badgeRojo  { background-color: #fef2f2; color: #dc2626; }
+.badgeGris  { background-color: #f1f5f9; color: #64748b; }
+
+/* ── Lista alertas ── */
+
+.listaAlertas {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemAlerta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f8fafc;
+  gap: 12px;
+}
+
+.itemAlerta:last-child {
+  border-bottom: none;
+}
+
+.itemAlertaInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.itemNombre {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemCategoria {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.itemAlertaStock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.stockValor {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.sinStock  { background-color: #fef2f2; color: #dc2626; }
+.stockBajo { background-color: #fff7ed; color: #ea580c; }
+
+.stockMinimo {
+  font-size: 10px;
+  color: #cbd5e1;
+}
+
+/* ── Lista movimientos ── */
+
+.listaMovimientos {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemMovimiento {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f8fafc;
+}
+
+.itemMovimiento:last-child {
+  border-bottom: none;
+}
+
+.tipoIcono {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tipoIcono.entrada { background-color: #f0fdf4; color: #16a34a; }
+.tipoIcono.salida  { background-color: #fef2f2; color: #dc2626; }
+
+.movInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.movProducto {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0f172a;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movFecha {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 2px 0 0;
+}
+
+.movCantidad {
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.cantEntrada { color: #16a34a; }
+.cantSalida  { color: #dc2626; }
+
+/* ── Responsive ── */
+
+@media (max-width: 1100px) {
+  .grillaTarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .grillaSecundaria {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .grillaTarjetas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .tarjeta {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .tarjetaIcono {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .tarjetaValor {
+    font-size: 24px;
+  }
+
+  .tarjetaDetalle {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .grillaTarjetas {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .tarjeta {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .tarjetaValor {
+    font-size: 22px;
+  }
+}
