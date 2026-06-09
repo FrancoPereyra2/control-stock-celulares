@@ -70,9 +70,9 @@ export default function Login() {
       <section className="panelDerecho">
         <div className="contenedorFormulario">
           <div className="encabezadoForm">
-            <h2 className="tituloForm">Bienvenido de vuelta</h2>
+            <h2 className="tituloForm">Bienvenido</h2>
             <p className="subtituloForm">
-              Ingresá tus datos para acceder al panel
+              Ingresá tus datos para acceder
             </p>
           </div>
 
