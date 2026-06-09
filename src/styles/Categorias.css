@@ -1,0 +1,353 @@
+.paginaCategorias {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Barra superior ── */
+
+.paginaCategorias .barraAcciones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.paginaCategorias .buscador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 0 14px;
+  height: 44px;
+  max-width: 340px;
+  flex: 1;
+  color: #94a3b8;
+  transition: border-color 0.15s;
+}
+
+.paginaCategorias .buscador:focus-within {
+  border-color: #3b82f6;
+  color: #475569;
+}
+
+.paginaCategorias .inputBusqueda {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 13.5px;
+  color: #0f172a;
+  width: 100%;
+}
+
+.paginaCategorias .inputBusqueda::placeholder { color: #94a3b8; }
+
+.paginaCategorias .botonAgregar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 18px;
+  height: 40px;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+}
+
+.paginaCategorias .botonAgregar:hover { background-color: #1e40af; }
+
+/* ── Tabla ── */
+
+.paginaCategorias .contenedorTabla {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+.paginaCategorias .tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.paginaCategorias .tabla thead tr { border-bottom: 1px solid #f1f5f9; }
+
+.paginaCategorias .tabla th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.paginaCategorias .tabla tbody tr {
+  border-bottom: 1px solid #f8fafc;
+  transition: background-color 0.1s;
+}
+
+.paginaCategorias .tabla tbody tr:last-child { border-bottom: none; }
+.paginaCategorias .tabla tbody tr:hover { background-color: #f8fafc; }
+
+.paginaCategorias .tabla td {
+  padding: 14px 16px;
+  vertical-align: middle;
+}
+
+.nombreCategoria {
+  font-weight: 600;
+  color: #0f172a;
+  margin: 0;
+  font-size: 14px;
+}
+
+.descripcionCategoria {
+  font-size: 12.5px;
+  color: #64748b;
+  margin: 3px 0 0;
+}
+
+.badgeProductos {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background-color: #f1f5f9;
+  color: #475569;
+  white-space: nowrap;
+}
+
+/* ── Acciones ── */
+
+.paginaCategorias .acciones {
+  display: flex;
+  gap: 6px;
+}
+
+.paginaCategorias .botonEditar,
+.botonEliminar {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.paginaCategorias .botonEditar { background-color: #f1f5f9; color: #475569; }
+.paginaCategorias .botonEditar:hover { background-color: #e2e8f0; }
+
+.botonEliminar { background-color: #fef2f2; color: #dc2626; }
+.botonEliminar:hover { background-color: #fee2e2; }
+
+.paginaCategorias .sinResultados {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px;
+  font-size: 14px;
+}
+
+.totalCategorias {
+  font-size: 12px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ── Cards mobile ── */
+
+.paginaCategorias .listaCards { display: none; }
+
+.paginaCategorias .card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.cardEncabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardAcciones {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ── Modal ── */
+
+.paginaCategorias .overlayModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.paginaCategorias .modal {
+  background-color: #ffffff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.paginaCategorias .modalEncabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.paginaCategorias .modalTitulo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.paginaCategorias .modalCerrar {
+  width: 32px;
+  height: 32px;
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+}
+
+.paginaCategorias .modalCerrar:hover { background-color: #e2e8f0; }
+
+.paginaCategorias .modalForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.paginaCategorias .campoModal {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.paginaCategorias .campoModal label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.paginaCategorias .campoModal input,
+.paginaCategorias .campoModal textarea {
+  padding: 10px 14px;
+  border: 1.5px solid #d3d3d3;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #0f172a;
+  outline: none;
+  background-color: #f8fafc;
+  transition: border-color 0.15s, background-color 0.15s;
+  font-family: inherit;
+}
+
+.paginaCategorias .campoModal input { height: 40px; }
+
+.paginaCategorias .campoModal textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.paginaCategorias .campoModal input:focus,
+.paginaCategorias .campoModal textarea:focus {
+  border-color: #3b82f6;
+  background-color: #ffffff;
+}
+
+.paginaCategorias .modalAcciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.paginaCategorias .botonCancelar {
+  height: 40px;
+  padding: 0 18px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.paginaCategorias .botonCancelar:hover { background-color: #e2e8f0; }
+
+.paginaCategorias .botonGuardar {
+  height: 40px;
+  padding: 0 20px;
+  background-color: #1d4ed8;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.paginaCategorias .botonGuardar:hover { background-color: #1e40af; }
+
+/* ── Responsive ── */
+
+@media (max-width: 620px) {
+  .paginaCategorias .barraAcciones { flex-direction: column; align-items: stretch; }
+  .paginaCategorias .buscador { max-width: 100%; }
+  .paginaCategorias .botonAgregar { justify-content: center; height: 48px; }
+
+  .paginaCategorias .contenedorTabla { display: none; }
+  .paginaCategorias .listaCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
