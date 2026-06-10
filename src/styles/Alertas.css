@@ -1,0 +1,306 @@
+.paginaAlertas {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Sin alertas ── */
+
+.sinAlertas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 12px;
+  text-align: center;
+}
+
+.sinAlertasIcono {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #f0fdf4;
+  color: #16a34a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sinAlertasTitulo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.sinAlertasDesc {
+  font-size: 14px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ── Tarjetas de resumen ── */
+
+.resumenAlertas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.tarjetaAlerta {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.tarjetaAlertaIcono {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tarjeta-rojo    .tarjetaAlertaIcono { background-color: #fef2f2; color: #dc2626; }
+.tarjeta-naranja .tarjetaAlertaIcono { background-color: #fff7ed; color: #ea580c; }
+.tarjeta-gris    .tarjetaAlertaIcono { background-color: #f1f5f9; color: #475569; }
+
+.tarjetaAlertaInfo { display: flex; flex-direction: column; gap: 2px; }
+
+.tarjetaAlertaTitulo {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.tarjetaAlertaValor {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ── Barra filtros ── */
+
+.barraFiltros {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chipsFiltro {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chipFiltro {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.chipFiltro:hover { background-color: #f8fafc; }
+
+.chipFiltroActivo {
+  background-color: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+.botonIrProductos {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 16px;
+  height: 36px;
+  background-color: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+  flex-shrink: 0;
+}
+
+.botonIrProductos:hover { background-color: #e2e8f0; }
+
+/* ── Tabla ── */
+
+.paginaAlertas .contenedorTabla {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow-x: auto;
+}
+
+.paginaAlertas .tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.paginaAlertas .tabla thead tr { border-bottom: 1px solid #f1f5f9; }
+
+.paginaAlertas .tabla th {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+.paginaAlertas .tabla tbody tr {
+  border-bottom: 1px solid #f8fafc;
+  transition: background-color 0.1s;
+}
+
+.paginaAlertas .tabla tbody tr:last-child { border-bottom: none; }
+.paginaAlertas .tabla tbody tr:hover { background-color: #f8fafc; }
+
+.paginaAlertas .tabla td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+.paginaAlertas .nombreProducto { font-weight: 500; color: #0f172a; margin: 0; }
+.paginaAlertas .categoriaTabla { color: #64748b; font-size: 13px; }
+.paginaAlertas .stockMinTabla  { color: #94a3b8; font-size: 13px; }
+
+.faltanTabla {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ea580c;
+}
+
+/* ── Badges y chips ── */
+
+.badgeStock {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 8px;
+}
+
+.badge-sin-stock { background-color: #fef2f2; color: #dc2626; }
+.badge-bajo      { background-color: #fff7ed; color: #ea580c; }
+
+.chipNivel {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.chipNivel-sin-stock { background-color: #fef2f2; color: #dc2626; }
+.chipNivel-bajo      { background-color: #fff7ed; color: #ea580c; }
+
+.paginaAlertas .sinResultados {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px;
+  font-size: 14px;
+}
+
+.totalAlertas { font-size: 12px; color: #94a3b8; margin: 0; }
+
+/* ── Cards mobile ── */
+
+.paginaAlertas .listaCards { display: none; }
+
+.paginaAlertas .card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  border: 1px solid #d3d3d3;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.card-sin-stock { border-left: 4px solid #dc2626; }
+.card-bajo      { border-left: 4px solid #ea580c; }
+
+.paginaAlertas .cardEncabezado {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.paginaAlertas .categoriaCard { font-size: 12px; color: #94a3b8; margin: 0; }
+
+.cardStocks {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.cardStockItem {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+}
+
+.cardStockLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cardStockValor { font-size: 14px; font-weight: 600; color: #0f172a; }
+
+.cardStockFaltan { font-size: 14px; font-weight: 700; color: #ea580c; }
+
+/* ── Responsive ── */
+
+@media (max-width: 620px) {
+  .resumenAlertas { grid-template-columns: 1fr 1fr; }
+  .resumenAlertas .tarjetaAlerta:last-child { grid-column: span 2; }
+
+  .barraFiltros { flex-direction: column; align-items: stretch; }
+  .botonIrProductos { justify-content: center; }
+
+  .paginaAlertas .contenedorTabla { display: none; }
+  .paginaAlertas .listaCards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
