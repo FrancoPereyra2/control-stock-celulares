@@ -422,6 +422,8 @@
 
 .paginaProductos .campoModal input,
 .paginaProductos .campoModal textarea {
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px 14px;
   border: 1.5px solid #d3d3d3;
   border-radius: 10px;
@@ -443,6 +445,7 @@
 }
 
 .filaTres { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.filaTres .campoModal { min-width: 0; }
 
 /* ── Select custom modal ── */
 
